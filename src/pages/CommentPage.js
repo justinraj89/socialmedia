@@ -101,31 +101,6 @@ function CommentPage() {
     <main className="my-4 pt-4 text-zinc-600 text-mono pb-8 min-h-screen">
       <UserPost post={post} />
 
-      
-      <div className="bg-white p-8 shadow-md rounded-3xl mb-4">
-        <div className="border-b-2">
-          <h2 className="font-bold text-xl mb-6 pt-4 text-center md:text-left">
-            Comments
-          </h2>
-        </div>
-
-
-
-
-        {allComments?.map((comment, i) => (
-          <div className="my-4 border-b-2" key={i}>
-            <div className="flex items-center gap-2">
-              <img
-                src={comment.avatar}
-                alt=""
-                className="w-12 rounded-full border-2 border-black"
-              />
-              <h2 className="font-bold">{comment.username}</h2>
-            </div>
-            <p className="pt-4 pb-4 md:text-lg">{comment.comment}</p>
-          </div>
-        ))}
-      </div>
       {user ? (
         <div>
           <div className="block md:flex md:gap-4">
@@ -133,7 +108,7 @@ function CommentPage() {
               type="text"
               value={comment}
               placeholder="leave a comment"
-              className="bg-white px-4 p-2 rounded-lg focus:outline-none w-full "
+              className="bg-white px-4 p-2 rounded-lg focus:outline-none w-full text-center md:text-left"
               onChange={(e) => setComment(e.target.value)}
             />
             <button
@@ -149,6 +124,29 @@ function CommentPage() {
       ) : (
         <h2>Login to leave comments</h2>
       )}
+      
+      <div className=" p-8  mb-4">
+        <div className="border-b-2">
+          <h2 className="font-bold text-xl mb-6 pt-4 text-center md:text-left">
+            Comments
+          </h2>
+        </div>
+
+        {allComments?.map((comment, i) => (
+          <div className="my-4 border-b-2" key={i}>
+            <div className="flex items-center gap-2">
+              <img
+                src={comment.avatar}
+                alt=""
+                className="w-12 rounded-full border-2 border-black"
+              />
+              <h2 className="font-bold">{comment.username}</h2>
+            </div>
+            <p className="pt-4 pb-4 md:text-lg">{comment.comment}</p>
+          </div>
+        ))}
+      </div>
+     
       <GoToTop/>
     </main>
   );

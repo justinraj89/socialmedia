@@ -55,7 +55,25 @@ function ProfilePage() {
       <div className="flex flex-col text-zinc-600">
         {userPosts.map((post) => (
           <UserPost post={post} key={post.id} user={user} >
-
+             <div className="w-fit">
+              <Link to={`/post/${post.id}`}>
+                <div className="flex mt-6 items-center gap-4 justify-center lg:justify-start w-fit">
+                  <button className="font-bold bg-transparent text-zinc-600 shadow-md bg-zinc-100  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2
+                  transition transform hover:scale-105">
+                    Comment
+                  </button>
+                  {post.comments?.length === 1 ? (
+                    <p className=" text-zinc-500 hover:underline">
+                      {post.comments?.length || 0} comment
+                    </p>
+                  ) : (
+                    <p className=" text-zinc-500 hover:underline">
+                      {post.comments?.length || 0} comments
+                    </p>
+                  )}
+                </div>
+              </Link>
+          </div>
           </UserPost>
         ))}
       </div>

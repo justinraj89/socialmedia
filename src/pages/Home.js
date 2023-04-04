@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <main className="text-zinc-600 pb-12 text-large font-medium">
-      <div className=" flex justify-center items-center text-3xl mb-4">Home Page</div>
+      {/* <div className=" flex justify-center items-center text-3xl mb-4">Home Page</div> */}
       {allPosts.map((post) => (
         <UserPost post={post} key={post.id} user={user}>
           <div className="w-fit">
