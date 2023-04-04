@@ -10,9 +10,11 @@ import {
   arrayUnion,
   Timestamp,
 } from "firebase/firestore";
+import GoToTop from "../utils/goToTop";
 //React Toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 //=================================================
 
 function CommentPage() {
@@ -96,7 +98,7 @@ function CommentPage() {
 
 
   return (
-    <main className="my-4 pt-4 text-zinc-600 text-mono pb-8">
+    <main className="my-4 pt-4 text-zinc-600 text-mono pb-8 min-h-screen">
       <UserPost post={post} />
 
       
@@ -147,6 +149,7 @@ function CommentPage() {
       ) : (
         <h2>Login to leave comments</h2>
       )}
+      <GoToTop/>
     </main>
   );
 }

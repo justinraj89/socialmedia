@@ -7,12 +7,11 @@ import Navbar from "./components/Navbar";
 import NewPost from "./pages/NewPost"
 import EditPost from "./pages/EditPost";
 import CommentPage from "./pages/CommentPage"
-
-import { AnimatePresence } from "framer-motion";
+import ProfilePage from "./pages/ProfilePage";
 //=============================================
 
 function App() {
-
+  
 
   return (
     <MainLayout>
@@ -25,6 +24,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/editpost/:id" element={<EditPost/>} />
           <Route path="/post/:id" element={<CommentPage/>} />
+          <Route path="/user/:id" element={<ProfilePage /> } />
         </Routes>
       </BrowserRouter>
     </MainLayout>

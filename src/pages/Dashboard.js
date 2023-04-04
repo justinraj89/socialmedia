@@ -1,7 +1,7 @@
 import { auth, db } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState, Fragment } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import {
   collection,
   deleteDoc,
@@ -9,8 +9,6 @@ import {
   onSnapshot,
   query,
   where,
-  writeBatch,
-  getDocs,
 } from "firebase/firestore";
 import UserPost from "../components/UserPost";
 import { BsTrash3 } from "react-icons/bs";
@@ -41,7 +39,6 @@ function Dashboard() {
     });
     return posts;
   };
-
 
   const deletePost = async () => {
     if (!selectedPostId) return;
@@ -85,7 +82,7 @@ function Dashboard() {
 
       <div className="flex flex-col text-zinc-600">
         {userPosts.map((post) => (
-          <UserPost post={post} key={post.id}>
+          <UserPost post={post} key={post.id} user={user} >
             <div className="flex gap-2 pt-4  mt-4">
               <button
                 onClick={() => {
