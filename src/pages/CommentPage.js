@@ -120,7 +120,7 @@ function CommentPage() {
               />
               <h2 className="font-bold">{comment.username}</h2>
             </div>
-            <p className="pt-4 pb-4">{comment.comment}</p>
+            <p className="pt-4 pb-4 md:text-lg">{comment.comment}</p>
           </div>
         ))}
       </div>
@@ -137,7 +137,7 @@ function CommentPage() {
             <button
               onClick={submitComment}
               type="submit"
-              className="font-bold mt-4 lg:mt-0 py-3 text-gray-100 shadow-md bg-zinc-600 px-6 rounded-xl text-sm flex items-center justify-center gap-2
+              className="font-bold mt-4 lg:mt-0 py-3 text-gray-100 shadow-md bg-zinc-600 px-6 rounded-xl text-sm md:text-md flex items-center justify-center gap-2
               transition transform hover:scale-105 w-full lg:w-40"
             >
               submit

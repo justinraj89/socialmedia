@@ -4,7 +4,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import UserPost from "../components/UserPost";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import { Button } from "react-daisyui";
 //=============================================
 
 export default function Home() {
@@ -53,12 +52,6 @@ export default function Home() {
           </div>
         </UserPost>
       ))}
-
-      <div className="btn-group flex justify-center">
-        <button className="btn bg-gray-200 hover:bg-gray-300 border-none text-zinc-600">«</button>
-        <button className="btn bg-gray-200 hover:bg-gray-300 border-none text-zinc-600">Page 22</button>
-        <button className="btn bg-gray-200 hover:bg-gray-300 border-none text-zinc-600">»</button>
-      </div>
 
     </main>
   );
