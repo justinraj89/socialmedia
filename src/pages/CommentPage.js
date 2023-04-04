@@ -137,8 +137,8 @@ function CommentPage() {
             <button
               onClick={submitComment}
               type="submit"
-              className="font-bold text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2
-              transition transform hover:scale-105 w-full lg:w-fit"
+              className="font-bold mt-4 lg:mt-0 py-3 text-gray-100 shadow-md bg-zinc-600 px-6 rounded-xl text-sm flex items-center justify-center gap-2
+              transition transform hover:scale-105 w-full lg:w-40"
             >
               submit
             </button>
