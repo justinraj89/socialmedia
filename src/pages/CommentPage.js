@@ -1,6 +1,6 @@
 import { auth, db } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import UserPost from "../components/UserPost";
 import {
@@ -22,7 +22,6 @@ function CommentPage() {
   const [comment, setComment] = useState("");
   const [allComments, setAllComments] = useState([]);
   const [user, loading] = useAuthState(auth);
-
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -59,7 +58,6 @@ function CommentPage() {
     return unsubscribe;
   };
 
-
   //---------------------------------------
 
   const submitComment = async () => {
@@ -81,6 +79,7 @@ function CommentPage() {
         avatar: auth.currentUser.photoURL,
         username: auth.currentUser.displayName,
         timestamp: Timestamp.now(),
+        user: auth.currentUser.uid
       }),
     });
     setComment("");
@@ -95,7 +94,7 @@ function CommentPage() {
   }, [id, user]);
   
 
-
+console.log(allComments, 'ALLCOMMENTS')
 
   return (
     <main className="my-4 pt-4 text-zinc-600 text-mono pb-8 min-h-screen">
@@ -135,11 +134,15 @@ function CommentPage() {
         {allComments?.map((comment, i) => (
           <div className="my-4 border-b-2" key={i}>
             <div className="flex items-center gap-2">
+              <Link to={`/${comment.username}/${comment.user}`}>
               <img
                 src={comment.avatar}
                 alt=""
                 className="w-12 rounded-full border-2 border-black"
               />
+              </Link>
+
+
               <h2 className="font-bold">{comment.username}</h2>
             </div>
             <p className="pt-4 pb-4 md:text-lg">{comment.comment}</p>

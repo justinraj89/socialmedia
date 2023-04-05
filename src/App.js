@@ -24,7 +24,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/editpost/:id" element={<EditPost/>} />
           <Route path="/post/:id" element={<CommentPage/>} />
-          <Route path="/user/:id" element={<ProfilePage /> } />
+          <Route path="/:username/:id" element={<ProfilePage /> } />
         </Routes>
       </BrowserRouter>
     </MainLayout>

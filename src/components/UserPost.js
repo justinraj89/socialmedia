@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 //=======================================
 
-function UserPost({ children, post, user }) {
+function UserPost({ children, post }) {
   // Format Date from firebase with moment library
   const datePosted = post.timestamp ? post.timestamp.toDate().toString() : "";
   const formattedDate = moment(datePosted).format("MM/DD/YYYY");
@@ -13,7 +13,7 @@ function UserPost({ children, post, user }) {
   return (
     <main className="bg-white p-8 shadow-md rounded-3xl mb-4">
       <div className="flex border-b-2 my-4 mb-8 gap-4 pb-2 px-2 justify-center md:justify-start">
-        <Link to={`/user/${post.user}`}>
+        <Link to={`/${post.username}/${post.user}`}>
           <img
             src={post.avatar}
             alt={post.username}
