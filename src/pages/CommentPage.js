@@ -14,7 +14,7 @@ import GoToTop from "../utils/goToTop";
 //React Toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { motion } from "framer-motion";
 //=================================================
 
 function CommentPage() {
@@ -95,7 +95,7 @@ function CommentPage() {
   
 
   return (
-    <main className="my-4 pt-4 text-zinc-600 text-mono pb-8 min-h-screen">
+    <motion.main initial={{ opacity: 0}} animate={{ opacity:1 }} exit={{ opacity: 0 }} className="my-4 pt-4 text-zinc-600 text-mono pb-8 min-h-screen">
       <UserPost post={post} />
 
       {user ? (
@@ -153,7 +153,7 @@ function CommentPage() {
       </div>
      
       <GoToTop/>
-    </main>
+    </motion.main>
   );
 }
 

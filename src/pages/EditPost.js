@@ -15,6 +15,7 @@ import GoToTop from "../utils/goToTop";
 //React Toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 //=================================================
 
 function EditPost() {
@@ -75,7 +76,7 @@ function EditPost() {
   };
 
   return (
-    <div className="my-4 pt-4 flex justify-center min-h-screen">
+    <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} exit={{ opacity: 0 }} className="my-4 pt-4 flex justify-center min-h-screen">
       <form onSubmit={handleEditPost} className="text-zinc-600 w-full">
         <h1 className="text-2xl md:text-3xl pb-4 text-center lg:text-left">
           Edit your post
@@ -115,7 +116,7 @@ function EditPost() {
         </div>
       </form>
       <GoToTop/>
-    </div>
+    </motion.div>
   );
 }
 

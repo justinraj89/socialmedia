@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
+import { motion } from "framer-motion";
 //===========================================
 
 function Login() {
@@ -40,7 +41,7 @@ function Login() {
   //===========================================================
 
   return (
-    <>
+    <motion.main initial={{ opacity: 0}} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
     <section className="flex flex-col justify-center items-center mt-4 p-6 border-2 h-36 bg-gray-200">
       <h1 className="text-center">Login Here!</h1>
     </section>
@@ -61,7 +62,7 @@ function Login() {
           </button>
         </div>
       </section>
-    </>
+    </motion.main>
   );
 }
 

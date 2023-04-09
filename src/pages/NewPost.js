@@ -6,6 +6,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 //React Toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 //======================================
 
 function Post() {
@@ -60,7 +61,13 @@ function Post() {
 
   //=================================================================
   return (
-    <div className="my-4 pt-4 flex justify-center items-center">
+    <motion.div
+      initial={{ y: "-100%" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.3 }}
+      exit={{ y: 0 }}
+      className="my-4 pt-4 flex justify-center items-center"
+    >
       <form onSubmit={handleSubmitPost} className="text-zinc-600 w-full">
         <h1 className="text-2xl md:text-3xl pb-4 text-center lg:text-left">
           create new post
@@ -85,11 +92,12 @@ function Post() {
         <button
           type="submit"
           className="font-bold w-full lg:w-auto text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2
-          transition transform hover:scale-105">
+          transition transform hover:scale-105"
+        >
           submit
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 

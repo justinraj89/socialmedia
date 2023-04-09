@@ -19,6 +19,7 @@ import GoToTop from "../utils/goToTop";
 // React Toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 //=================================================
 
 function ProfilePage() {
@@ -48,7 +49,7 @@ function ProfilePage() {
 
 
   return (
-    <main className="min-h-screen">
+    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen">
      <div className="flex my-6 justify-center lg:justify-start gap-4 border-b-2">
         <div className="text-xl md:text-2xl text-gray-600 pb-4 md:pl-2 flex justify-between w-full ">
           <h1 className="font-bold">{userFirstName}'s Posts</h1>
@@ -85,7 +86,7 @@ function ProfilePage() {
       </div>
 
       <GoToTop />
-    </main>
+    </motion.main>
   );
 }
 

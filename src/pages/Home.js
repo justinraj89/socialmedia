@@ -5,11 +5,12 @@ import UserPost from "../components/UserPost";
 import Loader from "../components/Loader"
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { easeInOut, motion } from "framer-motion";
 
 export default function Home() {
   const [allPosts, setAllPosts] = useState([]);
   const [user, loading] = useAuthState(auth);
-  const [pageLoading, setPageLoading] = useState(true)
+  const [pageLoading, setPageLoading] = useState(true);
 
   // Get all posts from firestore DB
   const getPosts = () => {
@@ -35,7 +36,13 @@ export default function Home() {
   }
 
   return (
-    <main className="text-zinc-600 pb-12 text-large font-medium">
+    <motion.main 
+      className="text-zinc-600 pb-12 text-large font-medium"
+      initial={{ x: '-100%'}}
+      animate={{ x: 0}}
+      transition={{ duration: 0.4, ease: easeInOut}}
+      exit={{ x: '-100vw'}}
+      >
       {/* <div className=" flex justify-center items-center text-3xl mb-4">Home Page</div> */}
       {allPosts.map((post) => (
         <UserPost post={post} key={post.id} user={user}>
@@ -67,6 +74,6 @@ export default function Home() {
           </div>
         </UserPost>
       ))}
-    </main>
+    </motion.main>
   );
 }
