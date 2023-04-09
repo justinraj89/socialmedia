@@ -23,7 +23,7 @@ export default function AvatarDropdown({ user }) {
           <img
             src={user.photoURL}
             alt=""
-            className="w-12 rounded-full cursor-pointer border-2 border-zinc-400"
+            className="w-10 lg:w-12 rounded-full cursor-pointer border-2 border-zinc-400"
           />
         </Menu.Button>
       </div>

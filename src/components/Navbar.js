@@ -36,7 +36,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`flex justify-between items-center py-3  sticky bg-gray-100 bg-opacity-95 z-20 rounded-lg mb-4
+      className={`flex justify-between items-center py-3  sticky bg-gray-100 bg-opacity-95 z-20 mb-4 border-b-2
     ${
       visible
         ? "top-0 transition-transform duration-700 transform translate-y-0"
@@ -49,9 +49,14 @@ function Navbar() {
           width={100}
           height={100}
           alt="food for thought"
-          className="w-20 lg:w-22 opacity-70"
+          className="w-16 lg:w-20 opacity-70"
         />
       </Link>
+
+      <Link to={'/'}>
+      <h1 className="font-logoFont text-3xl lg:text-5xl text-zinc-600 pl-3 lg:pl-0">Thought Cloud</h1>
+      </Link>
+      
 
       <ul className="flex items-center gap-10">
         {!user ? (

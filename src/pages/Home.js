@@ -43,7 +43,6 @@ export default function Home() {
       transition={{ duration: 0.4, ease: easeInOut}}
       exit={{ x: '-100vw'}}
       >
-      {/* <div className=" flex justify-center items-center text-3xl mb-4">Home Page</div> */}
       {allPosts.map((post) => (
         <UserPost post={post} key={post.id} user={user}>
           <div className="w-full flex justify-center md:justify-start">

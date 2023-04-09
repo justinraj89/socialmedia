@@ -2,12 +2,7 @@ import { auth, db } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {
-  serverTimestamp,
-  getDoc,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
+import { serverTimestamp, getDoc, doc, updateDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import { CiEdit } from "react-icons/ci";
@@ -68,15 +63,21 @@ function EditPost() {
     const docRef = doc(db, "posts", id);
     const updatedPost = { ...post, timestamp: serverTimestamp() };
     await updateDoc(docRef, updatedPost);
-    toast.success('Post Edited', {
-      position:toast.POSITION.BOTTOM_CENTER,
-      autoClose: 3000
-    })
+    toast.success("Post Edited", {
+      position: toast.POSITION.BOTTOM_CENTER,
+      autoClose: 3000,
+    });
     navigate("/dashboard");
   };
 
   return (
-    <motion.div initial={{ opacity: 0}} animate={{ opacity: 1}} exit={{ opacity: 0 }} className="my-4 pt-4 flex justify-center min-h-screen">
+    <motion.div
+      initial={{ y: "-100%" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.4 }}
+      exit={{ y: "-100%", opacity: 0 }}
+      className="my-4 pt-4 flex justify-center min-h-screen"
+    >
       <form onSubmit={handleEditPost} className="text-zinc-600 w-full">
         <h1 className="text-2xl md:text-3xl pb-4 text-center lg:text-left">
           Edit your post
@@ -104,18 +105,22 @@ function EditPost() {
             className="font-bold text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2 
             transition transform hover:scale-105"
           >
-            <CiEdit className="text-2xl"/>Edit Post
+            <CiEdit className="text-2xl" />
+            Edit Post
           </button>
 
           <Link to="/dashboard">
-            <button className="font-bold text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2 
-            transition transform hover:scale-105">
-              <AiOutlineCloseSquare className="text-2xl"/>Cancel
+            <button
+              className="font-bold text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2 
+            transition transform hover:scale-105"
+            >
+              <AiOutlineCloseSquare className="text-2xl" />
+              Cancel
             </button>
           </Link>
         </div>
       </form>
-      <GoToTop/>
+      <GoToTop />
     </motion.div>
   );
 }

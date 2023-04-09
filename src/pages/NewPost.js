@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 function Post() {
   const [post, setPost] = useState({ description: "" });
   const [user, loading] = useAuthState(auth);
+
   const navigate = useNavigate();
 
   const getUserData = async () => {
@@ -59,13 +60,18 @@ function Post() {
     navigate("/");
   };
 
+  // this brings user back to the previous page they were on
+  const handleCancel = () => {
+    navigate(-1);
+  };
+
   //=================================================================
   return (
     <motion.div
       initial={{ y: "-100%" }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      exit={{ y: 0 }}
+      exit={{ y: "-100%", opacity: 0 }}
       className="my-4 pt-4 flex justify-center items-center"
     >
       <form onSubmit={handleSubmitPost} className="text-zinc-600 w-full">
@@ -89,13 +95,23 @@ function Post() {
           </p>
         </div>
 
-        <button
-          type="submit"
-          className="font-bold w-full lg:w-auto text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2
+        <div className="flex gap-4">
+          <button
+            type="submit"
+            className="font-bold w-full lg:w-auto text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2
           transition transform hover:scale-105"
-        >
-          submit
-        </button>
+          >
+            submit
+          </button>
+          <button
+            type="button"
+            onClick={() => handleCancel()}
+            className="font-bold w-full lg:w-auto text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2
+          transition transform hover:scale-105"
+          >
+            cancel
+          </button>
+        </div>
       </form>
     </motion.div>
   );
