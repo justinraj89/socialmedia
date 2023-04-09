@@ -28,7 +28,7 @@ function CommentPage() {
 
   const getUserData = async () => {
     if (loading) return;
-    if (!user) return navigate("/login");
+    if (!user) return navigate("/auth/login");
   };
 
   const fetchPostData = async () => {
@@ -94,8 +94,6 @@ function CommentPage() {
   }, [id, user]);
   
 
-console.log(allComments, 'ALLCOMMENTS')
-
   return (
     <main className="my-4 pt-4 text-zinc-600 text-mono pb-8 min-h-screen">
       <UserPost post={post} />
@@ -121,10 +119,14 @@ console.log(allComments, 'ALLCOMMENTS')
           </div>
         </div>
       ) : (
-        <h2>Login to leave comments</h2>
+        <div className="flex justify-center md:text-lg pt-4">
+          <Link className='font-extrabold underline transition transform hover:scale-105 text-blue-600' to={'/auth/login'}>Login</Link>&nbsp;
+          <h2>to leave comments</h2>
+        </div>
+        
       )}
       
-      <div className=" p-8  mb-4">
+      <div className="p-8 mb-4">
         <div className="border-b-2">
           <h2 className="font-bold text-xl mb-6 pt-4 text-center md:text-left">
             Comments

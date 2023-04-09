@@ -29,6 +29,13 @@ function Dashboard() {
   const [showModal, setShowModal] = useState(false);
   const [selectedPostId, setSelectedPostId] = useState(null);
 
+  const getUserData = async () => {
+    if (loading) return;
+    if (!user) return navigate("/auth/login");
+  };
+
+  console.log(user, 'USER')
+
   // GET USERS POSTS
   const getUserPosts = async () => {
     if (loading) return;
@@ -65,20 +72,18 @@ function Dashboard() {
 
   //=============================
 
-  const logUserOut = () => {
-    auth.signOut();
-    navigate("/");
-  };
-  //------------------------------
-
   useEffect(() => {
+    getUserData()
     getUserPosts();
   }, [user, loading]);
 
   return (
     <main className="min-h-screen">
-      <div className="h-40 my-4 flex justify-center items-center bg-gray-300">
-        <h1 className="text-bold text-2xl text-zinc-600">Your Posts</h1>
+      <div className="flex my-6 justify-center lg:justify-start gap-4 border-b-2">
+        <div className="text-xl md:text-2xl text-gray-600 pb-4 md:pl-2">
+          <h1 className="font-bold">{user.displayName}</h1>
+          <h2><span className="font-bold">Total Posts:</span> {userPosts.length}</h2>
+        </div>
       </div>
 
       <div className="flex flex-col text-zinc-600">
@@ -116,18 +121,10 @@ function Dashboard() {
           </UserPost>
         ))}
       </div>
-
-      <div className="flex justify-center items-center pb-8 pt-8">
-        <button
-          onClick={() => logUserOut()}
-          className="w-full lg:w-auto font-bold text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2"
-        >
-          Sign Out
-        </button>
-      </div>
       <GoToTop/>
     </main>
   );
 }
 
 export default Dashboard;
+

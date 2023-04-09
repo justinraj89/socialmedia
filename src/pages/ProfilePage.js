@@ -49,8 +49,11 @@ function ProfilePage() {
 
   return (
     <main className="min-h-screen">
-      <div className="h-40 my-4 flex justify-center items-center bg-gray-300">
-        <h1 className="text-bold text-2xl text-zinc-600">{userFirstName}'s Posts</h1>
+     <div className="flex my-6 justify-center lg:justify-start gap-4 border-b-2">
+        <div className="text-xl md:text-2xl text-gray-600 pb-4 md:pl-2 flex justify-between w-full ">
+          <h1 className="font-bold">{userFirstName}'s Posts</h1>
+          <h2 className="text-right"><span className="font-bold">Total Posts:</span> {userPosts.length}</h2>
+        </div>
       </div>
 
       <div className="flex flex-col text-zinc-600">

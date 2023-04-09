@@ -25,8 +25,8 @@ function UserPost({ children, post }) {
         </h2>
       </div>
       <div className="px-2">
-        <p className="tracking-wide md:text-lg">{post.description}</p>
-        <p className="text-sm italic pt-6 text-zinc-400">
+        <p className="tracking-wide md:text-lg text-center md:text-left">{post.description}</p>
+        <p className="text-sm italic pt-6 text-zinc-400 text-center md:text-left">
           Posted: {formattedDate}
         </p>
       </div>

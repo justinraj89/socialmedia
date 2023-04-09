@@ -19,7 +19,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/auth/login" element={<LoginPage />} />
           <Route path="/post" element={<NewPost/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/editpost/:id" element={<EditPost/>} />

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../utils/firebase";
 import { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth"; // anytime you want acess to your user
+import AvatarDropdown from "../components/AvatarDropdown";
 //========================================================
 
 function Navbar() {
@@ -9,7 +10,7 @@ function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(10);
   const [visible, setVisible] = useState(true);
 
-// This scroll logic handles hiding/showing the Navbar on scroll
+  // This scroll logic handles hiding/showing the Navbar on scroll
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
     const scrollDelta = currentScrollPos - prevScrollPos;
@@ -34,8 +35,14 @@ function Navbar() {
   });
 
   return (
-    <nav className={`flex justify-between items-center py-3  sticky bg-gray-100 bg-opacity-95 z-20 rounded-lg mb-4
-    ${visible ? 'top-0 transition-transform duration-700 transform translate-y-0' : 'top-0 transition-transform duration-700 transform -translate-y-full'}`}>
+    <nav
+      className={`flex justify-between items-center py-3  sticky bg-gray-100 bg-opacity-95 z-20 rounded-lg mb-4
+    ${
+      visible
+        ? "top-0 transition-transform duration-700 transform translate-y-0"
+        : "top-0 transition-transform duration-700 transform -translate-y-full"
+    }`}
+    >
       <Link to="/">
         <img
           src={"/moonguy.png"}
@@ -49,7 +56,7 @@ function Navbar() {
       <ul className="flex items-center gap-10">
         {!user ? (
           <Link
-            to="/login"
+            to="/auth/login"
             className="font-bold text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2 
             transition transform hover:scale-105"
           >
@@ -57,21 +64,7 @@ function Navbar() {
           </Link>
         ) : (
           <div className="flex items-center gap-6">
-            <Link to="/post">
-              <button
-                className="font-bold text-gray-100 shadow-md bg-zinc-600  py-2 px-6 rounded-xl text-sm flex items-center justify-center gap-2
-              transition transform hover:scale-105"
-              >
-                post
-              </button>
-            </Link>
-            <Link to="/dashboard">
-              <img
-                src={user.photoURL}
-                alt=""
-                className="w-12 rounded-full cursor-pointer border-2 border-zinc-400"
-              />
-            </Link>
+            <AvatarDropdown user={user} />
           </div>
         )}
       </ul>
@@ -80,4 +73,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

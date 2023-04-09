@@ -21,8 +21,6 @@ function Login() {
   //Sign in with Google
   const googleProvider = new GoogleAuthProvider();
 
-
-
   const googleLoginAddUser = async () => {
     try {
       const res = await signInWithPopup(auth, googleProvider);
@@ -44,8 +42,7 @@ function Login() {
   return (
     <>
     <section className="flex flex-col justify-center items-center mt-4 p-6 border-2 h-36 bg-gray-200">
-      <h1 className="text-center">Login to join the family and begin talking shit</h1>
-      {/* <Image src={'/friends.png'} width={200} height={200} className='w-96 lg:w-1/2 opacity-60' alt="friends"/> */}
+      <h1 className="text-center">Login Here!</h1>
     </section>
 
       <section className=" text-zinc-600 mt-8">
