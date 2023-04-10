@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        logoFont: ["Londrina Outline", "cursive"],
+        logoFont: ["Lilita One", "sans-serif"],
        },
     },
   },  

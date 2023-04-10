@@ -54,7 +54,7 @@ function Navbar() {
       </Link>
 
       <Link to={'/'}>
-      <h1 className="font-logoFont text-3xl lg:text-5xl text-zinc-600">Thought Cloud</h1>
+      <h1 className="font-logoFont text-2xl lg:text-5xl text-zinc-600">Thought Cloud</h1>
       </Link>
       
 
@@ -62,7 +62,7 @@ function Navbar() {
         {!user ? (
           <Link
             to="/auth/login"
-            className="font-bold text-gray-100 shadow-md bg-zinc-600 py-2 px-2 lg:px-6 rounded-xl text-xs lg:text-sm flex items-center justify-center gap-2 
+            className="font-bold text-gray-100 shadow-md bg-blue-900 py-2 px-2 lg:px-6 rounded-xl text-xs lg:text-sm flex items-center justify-center gap-2 
             transition transform hover:scale-105"
           >
             login
