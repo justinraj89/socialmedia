@@ -52,7 +52,7 @@ function ProfilePage() {
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen">
       <div className="flex my-6 justify-center lg:justify-start gap-4 border-b-2">
         <div className="text-xl md:text-2xl text-gray-600 pb-4 md:pl-2 lg:flex lg:justify-between w-full text-center">
-          <h1 className="font-bold">{user?.displayName}</h1>
+          <h1 className="font-bold">{userFirstName}'s Posts</h1>
           <h2><span className="font-bold">Total Posts:</span> {userPosts.length}</h2>
         </div>
       </div>
