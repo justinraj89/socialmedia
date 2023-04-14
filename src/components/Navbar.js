@@ -9,7 +9,8 @@ function Navbar() {
   const [user, loading] = useAuthState(auth);
   const [prevScrollPos, setPrevScrollPos] = useState(10);
   const [visible, setVisible] = useState(true);
-
+  
+ 
   // This scroll logic handles hiding/showing the Navbar on scroll
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
