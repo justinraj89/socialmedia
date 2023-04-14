@@ -41,7 +41,8 @@ function Login() {
   //===========================================================
 
   return (
-    <motion.main initial={{ opacity: 0}} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <motion.main initial={{ opacity: 0}} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col justify-center items-center h-96">
+      <div className="text-lg">Join the discussion!</div>
       <section className=" text-zinc-600 mt-8">
         <div className="flex justify-center items-center">
           <img src="/foodforthought.png" alt="login" className="w-48 opacity-75"/>
@@ -51,7 +52,7 @@ function Login() {
         <div className="py-6 flex flex-col justify-center items-center ">
           <button
             onClick={googleLoginAddUser}
-            className="font-bold bg-transparent text-zinc-600 shadow-md bg-zinc-200  py-2 px-6 rounded-xl text-xl flex items-center justify-center gap-2
+            className="font-bold bg-transparent text-zinc-600 shadow-md bg-zinc-200 py-3 px-6 rounded-xl text-xl flex items-center justify-center gap-2
             transition transform hover:scale-105"
           >
             <FcGoogle className="text-2xl" />
