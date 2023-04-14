@@ -55,7 +55,7 @@ function Navbar() {
       </Link>
 
       <Link to={'/'}>
-      <h1 className="font-logoFont text-2xl lg:text-5xl text-zinc-600">Thought Cloud</h1>
+      <h1 className="font-logoFont text-2xl lg:text-5xl text-zinc-600 pl-3 lg:pl-0">Thought Cloud</h1>
       </Link>
       
 
