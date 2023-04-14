@@ -42,23 +42,20 @@ function Login() {
 
   return (
     <motion.main initial={{ opacity: 0}} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-    <section className="flex flex-col justify-center items-center mt-4 p-6 border-2 h-36 bg-gray-200">
-      <h1 className="text-center">Login Here!</h1>
-    </section>
-
       <section className=" text-zinc-600 mt-8">
-        <h3 className="pb-2 text-center pt-2 text-sm">
-          Sign in with one of the providers
-        </h3>
+        <div className="flex justify-center items-center">
+          <img src="/foodforthought.png" alt="login" className="w-48 opacity-75"/>
+        </div>
 
-        <div className="py-2 flex flex-col justify-center items-center ">
+
+        <div className="py-6 flex flex-col justify-center items-center ">
           <button
             onClick={googleLoginAddUser}
-            className="text-zinc-600  bg-gray-200 border-2 border-zinc-400
-           lg:w-80 font-bold text-sm lg:text-md rounded-lg flex justify-center p-4 gap-2 lg:transition lg:ease-in-out lg:duration-200"
+            className="font-bold bg-transparent text-zinc-600 shadow-md bg-zinc-200  py-2 px-6 rounded-xl text-xl flex items-center justify-center gap-2
+            transition transform hover:scale-105"
           >
             <FcGoogle className="text-2xl" />
-            sign in with Google
+            Sign in with Google
           </button>
         </div>
       </section>
