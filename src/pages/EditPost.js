@@ -76,10 +76,10 @@ function EditPost() {
       animate={{ y: 0 }}
       transition={{ duration: 0.4 }}
       exit={{ y: "-100%", opacity: 0 }}
-      className="my-4 pt-4 flex justify-center min-h-screen"
+      className="my-8 pt-4 flex justify-center min-h-screen"
     >
       <form onSubmit={handleEditPost} className="text-zinc-600 w-full">
-        <h1 className="text-2xl md:text-3xl pb-4 text-center lg:text-left">
+        <h1 className="text-2xl md:text-3xl pb-4 text-center font-bold lg:text-left">
           Edit your post
         </h1>
 

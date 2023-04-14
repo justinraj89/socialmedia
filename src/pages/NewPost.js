@@ -72,11 +72,11 @@ function Post() {
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
       exit={{ y: "-100%", opacity: 0 }}
-      className="my-4 pt-4 flex justify-center items-center"
+      className="my-8 pt-4 flex justify-center items-center"
     >
       <form onSubmit={handleSubmitPost} className="text-zinc-600 w-full">
-        <h1 className="text-2xl md:text-3xl pb-4 text-center lg:text-left">
-          create new post
+        <h1 className="text-2xl md:text-3xl pb-4 text-center font-bold lg:text-left">
+          New Post
         </h1>
 
         <div className="py-2">
