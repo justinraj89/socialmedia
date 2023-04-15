@@ -9,8 +9,7 @@ function Navbar() {
   const [user, loading] = useAuthState(auth);
   const [prevScrollPos, setPrevScrollPos] = useState(10);
   const [visible, setVisible] = useState(true);
-  
- 
+
   // This scroll logic handles hiding/showing the Navbar on scroll
   const handleScroll = () => {
     const currentScrollPos = window.scrollY;
@@ -54,10 +53,11 @@ function Navbar() {
         />
       </Link>
 
-      <Link to={'/'}>
-      <h1 className="font-logoFont text-2xl lg:text-5xl text-zinc-600 pl-3 lg:pl-0">Thought Cloud</h1>
+      <Link to={"/"}>
+        <h1 className="font-logoFont text-2xl lg:text-5xl text-zinc-600 pl-3 lg:pl-0">
+          Thought Cloud
+        </h1>
       </Link>
-      
 
       <ul className="flex items-center">
         {!user ? (

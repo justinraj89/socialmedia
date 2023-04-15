@@ -1,23 +1,17 @@
 import { auth, db } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   collection,
-  getDoc,
-  doc,
   onSnapshot,
   query,
   where,
 } from "firebase/firestore";
 import UserPost from "../components/UserPost";
-import { BsTrash3 } from "react-icons/bs";
-import { CiEdit } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import DeleteModal from "../components/DeleteModal";
 import GoToTop from "../utils/goToTop";
 // React Toastify
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 //=================================================
@@ -25,12 +19,8 @@ import { motion } from "framer-motion";
 function ProfilePage() {
   const { id } = useParams();
   const { username } = useParams()
-  const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [userPosts, setUserPosts] = useState([]);
-
-  const userFirstName = username.split(' ')[0];
-
 
   // GET USERS POSTS
   const getUserPosts = async () => {
@@ -50,10 +40,13 @@ function ProfilePage() {
 
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen">
-      <div className="flex my-6 justify-center lg:justify-start gap-4 border-b-2">
-        <div className="text-xl md:text-2xl text-gray-600 pb-4 md:pl-2 lg:flex lg:justify-between w-full text-center">
-          <h1 className="font-bold">{userFirstName}'s Posts</h1>
-          <h2><span className="font-bold">Total Posts:</span> {userPosts.length}</h2>
+      <div className="flex flex-col md:flex-row my-6 justify-center md:justify-start gap-4 border-b-2">
+        <div className="flex flex-col md:flex-row items-center justify-center md:pb-6">
+          <img src={userPosts[0]?.avatar} alt="user-img" className="w-28 md:w-32"/>
+        </div>
+        <div className="text-center lg:text-left text-xl md:text-2xl text-zinc-600 md:pl-4 pb-4">
+          <h1 className="font-bold">{username}</h1>
+          <h2 className="font-bold md:text-xl"><span>Total Posts:</span> {userPosts.length}</h2>
         </div>
       </div>
 

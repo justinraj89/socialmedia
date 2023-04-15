@@ -1,5 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
-import { signInWithPopup, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, db } from "../utils/firebase";
 import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -52,10 +52,10 @@ function Login() {
         <div className="py-6 flex flex-col justify-center items-center ">
           <button
             onClick={googleLoginAddUser}
-            className="font-bold bg-transparent text-zinc-600 shadow-md bg-zinc-200 py-3 px-6 rounded-xl text-xl flex items-center justify-center gap-2
+            className="font-bold text-gray-100 shadow-md bg-zinc-600 py-3 px-4 lg:px-6 rounded-xl text-md flex items-center justify-center 
             transition transform hover:scale-105"
           >
-            <FcGoogle className="text-2xl" />
+            <FcGoogle className="text-2xl mr-2" />
             Sign in with Google
           </button>
         </div>
