@@ -79,7 +79,7 @@ function Dashboard() {
     <motion.main initial={{ opacity: 0}} animate={{ opacity: 1}} exit={{ opacity: 0 }} className="min-h-screen">
       <div className="flex flex-col md:flex-row my-6 justify-center md:justify-start gap-4 border-b-2">
         <div className="flex flex-col md:flex-row items-center justify-center md:pb-6">
-          <img src={user.photoURL} alt="user-img" className="w-28 md:w-32"/>
+          <img src={user?.photoURL} alt="user-img" className="w-28 md:w-32"/>
         </div>
         <div className="text-center lg:text-left text-xl md:text-2xl text-zinc-600 md:pl-4 pb-4">
           <h1 className="font-bold">{user?.displayName}</h1>
