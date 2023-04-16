@@ -84,7 +84,7 @@ function Post() {
             value={post.description}
             onChange={(e) => setPost({ ...post, description: e.target.value })}
             className="bg-white p-4 h-40 w-full rounded-lg focus:outline-none md:text-lg"
-            placeholder="whats your your mind?"
+            placeholder="whats on your mind?"
           />
           <p
             className={`p-2 ${
