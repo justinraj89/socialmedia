@@ -19,6 +19,8 @@ import GoToTop from "../utils/goToTop";
 // React Toastify
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// Moment, framer motion
+import moment from "moment";
 import { motion } from "framer-motion";
 //=====================================
 // to sign user out, all you have to do is auth.signOut() which is provided through firebase
@@ -34,6 +36,10 @@ function Dashboard() {
     if (loading) return;
     if (!user) return navigate("/auth/login");
   };
+
+  
+  const formattedUserSinceDate = moment(user?.metadata.creationTime).format("MM/DD/YYYY");
+
 
   // GET USERS POSTS
   const getUserPosts = async () => {
@@ -84,6 +90,7 @@ function Dashboard() {
         <div className="text-center lg:text-left text-xl md:text-2xl text-zinc-600 md:pl-4 pb-4">
           <h1 className="font-bold">{user?.displayName}</h1>
           <h2 className="font-bold md:text-xl"><span>Total Posts:</span> {userPosts.length}</h2>
+          <p className="font-bold text-sm"><span>Account Created:</span> {formattedUserSinceDate}</p>
         </div>
       </div>
 

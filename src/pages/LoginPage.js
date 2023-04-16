@@ -4,7 +4,7 @@ import { auth, db } from "../utils/firebase";
 import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, getDocs, where, query } from "firebase/firestore";
 import { motion } from "framer-motion";
 //===========================================
 
@@ -22,6 +22,25 @@ function Login() {
   //Sign in with Google
   const googleProvider = new GoogleAuthProvider();
 
+  // const googleLoginAddUser = async () => {
+  //   try {
+  //     const res = await signInWithPopup(auth, googleProvider);
+  //     const currentUser = res.user;
+  //     const userData = {
+  //       name: currentUser.displayName,
+  //       email: currentUser.email,
+  //       photoUrl: currentUser.photoURL,
+  //       id: currentUser.uid,
+  //       timeStamp: serverTimestamp()
+  //     };
+  //     const collectionRef = collection(db, 'users');
+  //     await addDoc(collectionRef, userData)
+  //     navigate('/')
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
+
   const googleLoginAddUser = async () => {
     try {
       const res = await signInWithPopup(auth, googleProvider);
@@ -29,15 +48,21 @@ function Login() {
       const userData = {
         name: currentUser.displayName,
         email: currentUser.email,
-        photoUrl: currentUser.photoURL
+        photoUrl: currentUser.photoURL,
+        id: currentUser.uid,
+        timeStamp: serverTimestamp()
       };
       const collectionRef = collection(db, 'users');
-      await addDoc(collectionRef, userData)
+      const querySnapshot = await getDocs(query(collectionRef, where('id', '==', currentUser.uid)));
+      if (querySnapshot.empty) {
+        await addDoc(collectionRef, userData);
+      }
       navigate('/')
     } catch (err) {
       console.log(err)
     }
   }
+  
   //===========================================================
 
   return (

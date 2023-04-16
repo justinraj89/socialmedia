@@ -17,9 +17,12 @@ function UserPost({ children, post }) {
             className="w-12 rounded-full border-2 border-black"
           />
         </Link>
-        <h2 className="font-bold flex items-center md:text-xl">
+        <Link to={`/${post.username}/${post.user}`} className="font-bold flex items-center md:text-xl">
+        <h2>
           {post.username}
         </h2>
+        </Link>
+
       </div>
       <div className="px-2">
         <p className="tracking-wide md:text-lg text-center md:text-left">{post.description}</p>
