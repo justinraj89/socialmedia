@@ -59,7 +59,7 @@ function ProfilePage() {
     getUserInfo(id);
   }, [user, loading]);
 
-  console.log(userProfile)
+
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen">
       <div className="flex flex-col md:flex-row my-6 justify-center md:justify-start gap-4 border-b-2">

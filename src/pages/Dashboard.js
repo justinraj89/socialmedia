@@ -37,9 +37,7 @@ function Dashboard() {
     if (!user) return navigate("/auth/login");
   };
 
-  
   const formattedUserSinceDate = moment(user?.metadata.creationTime).format("MM/DD/YYYY");
-
 
   // GET USERS POSTS
   const getUserPosts = async () => {
@@ -52,6 +50,8 @@ function Dashboard() {
     });
     return posts;
   };
+
+  // DELETE POST
 
   const deletePost = async () => {
     if (!selectedPostId) return;
