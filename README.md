@@ -4,7 +4,7 @@
 ## Thought Cloud is a fullstack application built using React, Tailwind CSS, and Firebase for Auth/database. This is an application where users can login with their Google Account, create posts, comment on other users posts, and edit/delete their posts. This app was built mainly for mobile, but provides a pleasant user experience on all devices.
 
 
-Link to deployed Application [here](https://main.d2c067vz02drsd.amplifyapp.com/)
+## Link to deployed Application [here](https://main.d2c067vz02drsd.amplifyapp.com/)
 
 ## Mobile-View
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWM4ZWFmZDRjYzk4M2FhY2U3NzQ4YzQyYjlhMWY0YjYxMTE5MDJkMSZjdD1n/LamcFS75Ils63mxn1N/giphy.gif" width="400" >
